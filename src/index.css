@@ -1,6 +1,13 @@
+:root {
+  --font1: 'Pangolin', cursive;
+  --font2: 'Overpass', sans-serif;
+  --buttonColor: #e75d10;
+  --color2: #fde774;
+}
+
 body {
   margin: 0;
-  background-color: #fde774;
+  background-color: var(--color2);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

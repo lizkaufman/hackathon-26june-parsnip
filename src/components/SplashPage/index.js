@@ -2,12 +2,12 @@ import React from 'react';
 
 import css from './splashPage.module.css';
 
-import logo from '';
+import logo from '../../SVGs/ParsnipLogo.svg';
 
 function SplashPage() {
   return (
     <div id={css.SplashPage}>
-      <img src="logo" id={css.logo} />
+      <img src={logo} />
     </div>
   );
 }

@@ -1,6 +1,13 @@
 #recipeDisplay {
 }
 
+.recipeInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .recipeImg {
   /* these are just sample dimensions to keep the img from being massive! change at will :) - Liz x*/
   width: 60vw;

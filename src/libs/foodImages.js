@@ -1,4 +1,4 @@
-const julyFood = [
+export const julyFood = [
   { name: 'aubergine', image: 's3://parsnip-hackathon/aubergine.svg' },
   { name: 'blackberry', image: 's3://parsnip-hackathon/blackberry.svg' },
   { name: 'blueberry', image: 's3://parsnip-hackathon/blueberry.svg' },
@@ -13,5 +13,3 @@ const julyFood = [
   { name: 'summer-squash', image: 's3://parsnip-hackathon/summer-squash.svg' },
   { name: 'turnip', image: 's3://parsnip-hackathon/turnip.svg' },
 ];
-
-export default julyFood;

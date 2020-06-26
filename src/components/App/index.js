@@ -3,6 +3,7 @@ import './App.css';
 
 import MonthList from '../MonthList';
 import RecipeDisplay from '../RecipeDisplay';
+import SplashPage from '../SplashPage';
 
 //Components:
 //-list component with month and images of food
@@ -12,8 +13,10 @@ import RecipeDisplay from '../RecipeDisplay';
 function App() {
   return (
     <div className="App">
+      <header className="header">Parsnip</header>
       <MonthList />
       <RecipeDisplay />
+      {/* <SplashPage/> */}
     </div>
   );
 }
