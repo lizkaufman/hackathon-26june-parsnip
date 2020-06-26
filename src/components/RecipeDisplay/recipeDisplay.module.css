@@ -1,18 +1,41 @@
 #recipeDisplay {
 }
 
+.header {
+  position: relative;
+  left: 6rem;
+  height: 4rem;
+  margin: 1rem;
+}
 .recipeInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  font-family: var(--font1);
 }
 
 .recipeImg {
-  /* these are just sample dimensions to keep the img from being massive! change at will :) - Liz x*/
   width: 60vw;
   height: auto;
+  border-radius: 11pc;
+  border: 4px solid black;
+  margin: 1em;
 }
 
+.resetButton,
 .recipeLink {
+  background-color: var(--buttonColor);
+  font-family: var(--font1);
+  font-size: 1rem;
+  color: white;
+  border: solid 1px var(--buttonColor);
+  padding: 0.5rem 1rem;
+  margin: 1em;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#backButton {
+  margin-top: 3em;
 }

@@ -3,8 +3,8 @@
 }
 
 .header {
-  font-family: var(--font1);
-  font-size: 3rem;
-  text-align: right;
-  margin: 1rem 2.5rem;
+  position: relative;
+  left: 6rem;
+  height: 4rem;
+  margin: 1rem;
 }

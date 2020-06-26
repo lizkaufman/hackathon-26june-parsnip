@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import RecipeButton from '../RecipeButton';
 
@@ -22,9 +23,7 @@ import { julyFood } from '../../libs/foodImages';
 
 function RecipeDisplay() {
   //FIXME: will take in the month's list when that's ready
-  const [showRecipe, setShowRecipe] = useState(false);
   const [monthlyIngredients, setMonthlyIngredients] = useState([]);
-  const [ingredient, setIngredient] = useState('');
   const [recipeName, setRecipeName] = useState('');
   const [recipeImg, setRecipeImg] = useState('');
   const [recipeLink, setRecipeLink] = useState('');
@@ -37,24 +36,20 @@ function RecipeDisplay() {
   }, []);
 
   useEffect(() => {
-    //FIXME: change sample recipes to the month's ingredient list
     const pickedIngredient =
       monthlyIngredients[Math.floor(Math.random() * monthlyIngredients.length)];
     console.log({ pickedIngredient });
     setIngredient(pickedIngredient);
-  }, [monthlyIngredients]);
-
-  function pickRecipe(ingredient) {
     fetch(
-      //URL set up to take the chosen ingredient and then return 10 results
-      `https://api.edamam.com/search?q=${ingredient}&to=9&app_id=${appId}&app_key=${apiKey}`
+      //URL set up to take the chosen ingredientSelected and then return 10 results
+      `https://api.edamam.com/search?q=${pickedIngredient}&to=9&app_id=${appId}&app_key=${apiKey}`
     )
       .then((res) => res.json())
       .then((data) => {
-        const resultInfo = data;
-        console.log({ resultInfo });
-        //get the recipes array (with the key hits) out of the resultsInfo (array of objects):
-        const recipesArray = resultInfo.hits;
+        // const resultInfo = data;
+        // console.log({ resultInfo });
+        //get the recipes array (with the key hits) out of the data (array of objects):
+        const recipesArray = data.hits;
         console.log({ recipesArray });
         //from this array, pick one of the objects randomly (and get out the recipe key):
         const pickedRecipe =
@@ -68,29 +63,29 @@ function RecipeDisplay() {
         //---recipe URL
         setRecipeLink(pickedRecipe.url);
       });
+  }, [monthlyIngredients]);
 
-    //toggles the button off and the recipe info on:
-    setShowRecipe(true);
+  const history = useHistory();
+
+  function goHome() {
+    history.push('/month');
   }
 
   return (
-    <div id={css.RecipeDisplay}>
-      {!showRecipe ? (
-        <RecipeButton pickRecipe={() => pickRecipe(ingredient)} />
-      ) : (
-        <div className={css.recipeInfo}>
-          <h2 className={css.recipeName}>{recipeName}</h2>
-          <img src={recipeImg} alt={recipeName} className={css.recipeImg} />
-          <a
-            className={css.recipeLink}
-            href={recipeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Click here for the recipe for {recipeName}
-          </a>
-        </div>
-      )}
+    <div className={css.recipeInfo}>
+      <h2 className={css.recipeName}>{recipeName}</h2>
+      <img src={recipeImg} alt={recipeName} className={css.recipeImg} />
+      <a
+        className={css.recipeLink}
+        href={recipeLink}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Get cooking!
+      </a>
+      <button id={css.backButton} className={css.resetButton} onClick={goHome}>
+        Back
+      </button>
     </div>
   );
 }

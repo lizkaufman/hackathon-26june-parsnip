@@ -1,6 +1,9 @@
 #SplashPage {
+  position: relative;
+  margin: 30px auto;
+  width: 50vw;
 }
 
 .logo {
-  height: 20vh;
+  width: 50vw;
 }
