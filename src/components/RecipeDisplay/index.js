@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import RecipeButton from '../RecipeButton';
-
 import css from './recipeDisplay.module.css';
 
 import { appId, apiKey } from '../../libs/apiKey.js';
@@ -39,7 +37,6 @@ function RecipeDisplay() {
     const pickedIngredient =
       monthlyIngredients[Math.floor(Math.random() * monthlyIngredients.length)];
     console.log({ pickedIngredient });
-    setIngredient(pickedIngredient);
     fetch(
       //URL set up to take the chosen ingredientSelected and then return 10 results
       `https://api.edamam.com/search?q=${pickedIngredient}&to=9&app_id=${appId}&app_key=${apiKey}`

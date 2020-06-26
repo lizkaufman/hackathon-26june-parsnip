@@ -13,7 +13,11 @@ function SplashPage() {
 
   return (
     <div id={css.SplashPage}>
-      <img src={logo} onClick={goToMonth} />
+      <img
+        src={logo}
+        onClick={goToMonth}
+        alt="logo to click to go to main app"
+      />
     </div>
   );
 }
